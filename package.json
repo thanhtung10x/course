@@ -22,13 +22,12 @@
     "url": "https://github.com/thanhtung10x/course/issues"
   },
   "homepage": "https://github.com/thanhtung10x/course#readme",
-  
   "lint-staged": {
     "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --write"
   },
   "husky": {
     "hooks": {
-      "pre-commit":"lint-staged"
+      "pre-commit": "lint-staged"
     }
   },
   "dependencies": {
@@ -36,7 +35,7 @@
     "express-handlebars": "^5.3.4"
   },
   "devDependencies": {
-    "husky": "^7.0.2",
+    "husky": "^4.2.5",
     "lint-staged": "^11.1.2",
     "morgan": "^1.10.0",
     "node-sass": "^6.0.1",
