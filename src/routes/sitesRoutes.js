@@ -4,7 +4,7 @@ const router = express.Router();
 //inport file NewsController.js
 const siteController = require('../app/controllers/SitesController');
 
-router.use('/search', siteController.search);
-router.use('/', siteController.index);
+router.get('/search', siteController.search);
+router.get('/', siteController.index);
 
 module.exports = router;
