@@ -1,24 +1,29 @@
-const Courses = require('../models/Course');
-const { muntipleMongooseToObject } = require('../../ulti/mongoose');
-class MeController {
-  //[GET] /me/store/courses
-  storeCourses(req, res, next) {
-    Courses.find({})
-        .then( (courses) => {
-            res.render('./me/storeCourses', {
-                Courses: muntipleMongooseToObject(courses),
-            })
-        })
-        .catch(next);
-      
-  }
-  //[GET] /me/store/courses
-    //   home(req, res, next) {
-    //   res.redirect('/');
-        
-    //  }
-  
+const Course = require('../models/Course');
+const { mutipleMongooseToObject } = require('../../util/mongoose');
 
+class MeController {
+    // [GET] /me/stored/courses
+    storedCourses(req, res, next) {
+        Promise.all([Course.find({}), Course.countDocumentsDeleted()])
+            .then(([courses, deletedCount]) =>
+                res.render('me/stored-courses', {
+                    deletedCount,
+                    courses: mutipleMongooseToObject(courses),
+                }),
+            )
+            .catch(next);
+    }
+
+    // [GET] /me/trash/courses
+    trashCourses(req, res, next) {
+        Course.findDeleted({})
+            .then((courses) =>
+                res.render('me/trash-courses', {
+                    courses: mutipleMongooseToObject(courses),
+                }),
+            )
+            .catch(next);
+    }
 }
 
 module.exports = new MeController();

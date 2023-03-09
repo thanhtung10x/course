@@ -1,25 +1,24 @@
 <div class="mt-4">
+    <h3>Đăng khóa học</h3>
+
     <form method="POST" action="/courses/store">
-        <div class="mb-3">
-            <label for="name" class="form-label">Tên Khóa học</label>
-            <input type="text" name="name" class="form-control" id="name">
+        <div class="form-group">
+            <label for="name">Tên khóa học</label>
+            <input type="text" class="form-control" id="name" name="name">
         </div>
-
-        <div class="mb-3">
-            <label for="decription" class="form-label">Mô tả</label>
-            <input type="text" name="decription" class="form-control" id="decription">
+        <div class="form-group">
+            <label for="description">Mô tả</label>
+            <input type="text" class="form-control" id="description" name="description">
         </div>
-
-        <div class="mb-3">
-            <label for="videoID" class="form-label">Video ID</label>
-            <input type="text" name="videoID" class="form-control" id="videoID">
+        <div class="form-group">
+            <label for="videoId">Video ID</label>
+            <input type="text" class="form-control" id="videoId" name="videoId">
         </div>
-
-        <div class="mb-3">
-            <label for="level" class="form-label">Level</label>
-            <input type="text" name="level" class="form-control" id="level">
+        <div class="form-group">
+            <label for="level">Trình độ</label>
+            <input type="text" class="form-control" id="level" name="level">
         </div>
-
-        <button type="submit" class="btn btn-primary">Đăng khóa học</button>
-</form>
+        
+        <button type="submit" class="btn btn-primary">Thêm khóa học</button>
+    </form>
 </div>

@@ -1,31 +1,32 @@
 <div class="mt-4">
-    <h3>Khóa học của tôi</h3>
-    <table class="table mt-4">
-        <thead>
-            <tr>
-            <th scope="col">#</th>
-            <th scope="col">Tên khóa học</th>
-            <th scope="col">Trình độ</th>
-            <th scope="col">Thời gian tạo</th>
-            <th scope="col"></th>
+  <h3>Khóa học của tôi</h3>
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tên khóa học</th>
+        <th scope="col">Trình độ</th>
+        <th scope="col">Thời gian tạo</th>
+        <th scope="col"></th>
 
-            </tr>
-        </thead>
-        <tbody>
-            {{#each Courses}}
-            <tr>
-            <th scope="row">{{ sum @index 1 }}</th>
-            <td>{{this.name}}</td>
-            <td>{{this.level}}</td>
-            <td>{{this.createdAt}}</td>
-            <td>
-                <a href="/courses/{{this._id}}/edit" class="btn btn-link">Sửa</a>
-                <a href="" class="btn btn-link delete" data-bs-toggle="modal" data-bs-target="#delete-course-modal" data-id= "{{this._id}}">Xóa</a>
-            </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each Courses}}
+      <tr>
+        <th scope="row">{{ sum @index 1 }}</th>
+        <td>{{this.name}}</td>
+        <td>{{this.level}}</td>
+        <td>{{this.createdAt}}</td>
+        <td>
+          <a href="/courses/{{this._id}}/edit" class="btn btn-link">Sửa</a>
+          <a href="" class="btn btn-link delete" data-bs-toggle="modal" data-bs-target="#delete-course-modal"
+            data-id="{{this._id}}">Xóa</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </div>
 
 {{!-- delete modal --}}
@@ -52,21 +53,21 @@
 
 <script>
 
-    var btnDeletes = document.querySelectorAll('.delete');
-    var btnOks = document.querySelector('.ok');
-    console.log(btnOks)
-    var formElement = document.querySelector('.form-delete');
-    var id;
- 
-    btnDeletes.forEach(btnDelete => {
-        btnDelete.onclick = function () {
-          id = btnDelete.getAttribute('data-id');
-        }
-    })
+  var btnDeletes = document.querySelectorAll('.delete');
+  var btnOks = document.querySelector('.ok');
+  console.log(btnOks)
+  var formElement = document.querySelector('.form-delete');
+  var id;
 
-    btnOks.onclick = function () {
-      formElement.setAttribute('action', '/courses/'+ id + '?_method=DELETE');
-      formElement.submit();
+  btnDeletes.forEach(btnDelete => {
+    btnDelete.onclick = function () {
+      id = btnDelete.getAttribute('data-id');
     }
+  })
+
+  btnOks.onclick = function () {
+    formElement.setAttribute('action', '/courses/' + id + '?_method=DELETE');
+    formElement.submit();
+  }
 
 </script>
