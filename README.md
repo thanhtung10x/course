@@ -1,14 +1,19 @@
-## Running with docker
+## Install app
 
-- install docker: google
-- install docker-compose: google
+##### \* Lưu ý: install yarn nếu máy bạn chưa cài đặt
 
-
-1. docker run development mode.
 ```bash
-$ sudo docker-compose up -d react-mm-dev react-tailwind-dev
+$ npm install yarn
 ```
-3. docker run production mode.
+
+1. Install lib
+
 ```bash
-$ sudo docker-compose up -d react-mm-prod
+$ yarn install
+```
+
+2. Run app.
+
+```bash
+$ yarn start
 ```
