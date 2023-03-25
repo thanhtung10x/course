@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
 
+const config = require("../index");
+
 async function connect() {
   try {
-    await mongoose.connect("mongodb://course:course@localhost:27017/courses", {
+    await mongoose.connect(config.database.url, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
